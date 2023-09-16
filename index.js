@@ -252,7 +252,6 @@ app.post("/emptyCart", (req, res) => {
 app.post("/updateUserAddress", (req, res) => {
   const userId = req.session.user._id;
   const address = req.body.address;
-  // console.log(address);
   User.findOne({ _id: userId }).then((user) => {
     user.addresses.push(address);
     user.save().then((user) => {
